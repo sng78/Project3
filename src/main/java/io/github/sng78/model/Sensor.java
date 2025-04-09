@@ -1,9 +1,17 @@
 package io.github.sng78.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "sensor")
 public class Sensor {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
 
+    @Column(name = "name")
     private String name;
 
     public Sensor() {

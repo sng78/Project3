@@ -1,17 +1,28 @@
 package io.github.sng78.model;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "measurement")
 public class Measurement {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
 
+    @Column(name = "value")
     private double value;
 
+    @Column(name = "is_raining")
     private boolean isRaining;
 
+    @Column(name = "date_time")
     private LocalDateTime dateTime;
 
+    @ManyToOne
+    @JoinColumn(name = "sensor_name", referencedColumnName = "name")
     private Sensor sensor;
 
     public Measurement() {

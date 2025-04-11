@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -27,7 +28,7 @@ public class MeasurementController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<HttpStatus> save(@RequestBody MeasurementTo measurementTo) {
+    public ResponseEntity<HttpStatus> save(@RequestBody @Valid MeasurementTo measurementTo) {
         measurementService.save(convertToMeasurement(measurementTo));
         return ResponseEntity.ok(HttpStatus.OK);
     }

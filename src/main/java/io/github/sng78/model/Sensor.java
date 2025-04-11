@@ -1,6 +1,8 @@
 package io.github.sng78.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Entity
@@ -13,6 +15,8 @@ public class Sensor implements Serializable {
     private int id;
 
     @Column(name = "name")
+    @NotBlank(message = "Must be not empty")
+    @Size(min = 3, max = 30, message = "Must be 3 - 30 characters")
     private String name;
 
     public Sensor() {

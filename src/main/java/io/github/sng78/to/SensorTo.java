@@ -4,10 +4,6 @@ public class SensorTo {
 
     private String name;
 
-    public SensorTo(String name) {
-        this.name = name;
-    }
-
     public String getName() {
         return name;
     }

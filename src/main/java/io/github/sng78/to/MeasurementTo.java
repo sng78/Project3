@@ -10,12 +10,6 @@ public class MeasurementTo {
 
     private Sensor sensor;
 
-    public MeasurementTo(double value, boolean isRaining, Sensor sensor) {
-        this.value = value;
-        this.isRaining = isRaining;
-        this.sensor = sensor;
-    }
-
     public double getValue() {
         return value;
     }

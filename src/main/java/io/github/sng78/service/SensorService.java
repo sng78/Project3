@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 @Service
 @Transactional
 public class SensorService {
@@ -21,7 +23,7 @@ public class SensorService {
         sensorRepository.save(sensor);
     }
 
-    public Sensor findByName(String name) {
+    public Optional<Sensor> findByName(String name) {
         return sensorRepository.findByName(name);
     }
 }

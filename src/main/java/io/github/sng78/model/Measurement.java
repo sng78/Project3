@@ -17,11 +17,11 @@ public class Measurement {
     @NotNull(message = "Cannot be NULL")
     @Min(value = -100, message = "Minimum temperature -100")
     @Max(value = 100, message = "Maximum temperature 100")
-    private double value;
+    private Double value;
 
     @Column(name = "is_raining")
     @NotNull(message = "Cannot be NULL")
-    private boolean isRaining;
+    private Boolean isRaining;
 
     @Column(name = "date_time")
     private LocalDateTime dateTime;
@@ -34,7 +34,7 @@ public class Measurement {
     public Measurement() {
     }
 
-    public Measurement(double value, boolean isRaining) {
+    public Measurement(Double value, Boolean isRaining) {
         this.value = value;
         this.isRaining = isRaining;
     }
@@ -47,19 +47,19 @@ public class Measurement {
         this.id = id;
     }
 
-    public double getValue() {
+    public Double getValue() {
         return value;
     }
 
-    public void setValue(double value) {
+    public void setValue(Double value) {
         this.value = value;
     }
 
-    public boolean isRaining() {
+    public Boolean isRaining() {
         return isRaining;
     }
 
-    public void setRaining(boolean raining) {
+    public void setRaining(Boolean raining) {
         isRaining = raining;
     }
 

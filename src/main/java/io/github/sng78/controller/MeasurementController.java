@@ -3,15 +3,21 @@ package io.github.sng78.controller;
 import io.github.sng78.model.Measurement;
 import io.github.sng78.service.MeasurementService;
 import io.github.sng78.to.MeasurementTo;
+import io.github.sng78.util.exception.ErrorResponse;
+import io.github.sng78.util.exception.exceptionWithOverrideMessage;
+import io.github.sng78.util.validation.MeasurementValidator;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static io.github.sng78.util.exception.ErrorMessage.returnErrorMessage;
 
 @RestController
 @RequestMapping("/measurements")
@@ -21,14 +27,26 @@ public class MeasurementController {
 
     private final ModelMapper modelMapper;
 
+    private final MeasurementValidator measurementValidator;
+
     @Autowired
-    public MeasurementController(MeasurementService measurementService, ModelMapper modelMapper) {
+    public MeasurementController(MeasurementService measurementService, ModelMapper modelMapper, MeasurementValidator measurementValidator) {
         this.measurementService = measurementService;
         this.modelMapper = modelMapper;
+        this.measurementValidator = measurementValidator;
     }
 
     @PostMapping("/add")
-    public ResponseEntity<HttpStatus> save(@RequestBody @Valid MeasurementTo measurementTo) {
+    public ResponseEntity<HttpStatus> save(@RequestBody @Valid MeasurementTo measurementTo,
+                                           BindingResult bindingResult) {
+
+        Measurement measurement = convertToMeasurement(measurementTo);
+        measurementValidator.validate(measurement, bindingResult);
+
+        if (bindingResult.hasErrors()) {
+            returnErrorMessage(bindingResult);
+        }
+
         measurementService.save(convertToMeasurement(measurementTo));
         return ResponseEntity.ok(HttpStatus.OK);
     }
@@ -51,5 +69,12 @@ public class MeasurementController {
 
     private MeasurementTo convertToMeasurementTo(Measurement measurement) {
         return modelMapper.map(measurement, MeasurementTo.class);
+    }
+
+    @ExceptionHandler
+    private ResponseEntity<ErrorResponse> handleException(exceptionWithOverrideMessage exception) {
+        ErrorResponse response = new ErrorResponse(exception.getMessage());
+
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
 }

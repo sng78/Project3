@@ -11,27 +11,27 @@ public class MeasurementTo {
     @NotNull(message = "Cannot be NULL")
     @Min(value = -100, message = "Minimum temperature -100")
     @Max(value = 100, message = "Maximum temperature 100")
-    private double value;
+    private Double value;
 
     @NotNull(message = "Cannot be NULL")
-    private boolean isRaining;
+    private Boolean isRaining;
 
     @NotNull(message = "Cannot be NULL")
     private Sensor sensor;
 
-    public double getValue() {
+    public Double getValue() {
         return value;
     }
 
-    public void setValue(double value) {
+    public void setValue(Double value) {
         this.value = value;
     }
 
-    public boolean isRaining() {
+    public Boolean isRaining() {
         return isRaining;
     }
 
-    public void setRaining(boolean raining) {
+    public void setRaining(Boolean raining) {
         isRaining = raining;
     }
 

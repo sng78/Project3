@@ -26,7 +26,7 @@ public class MeasurementService {
     @Transactional
     public void save(Measurement measurement) {
         measurement.setDateTime(LocalDateTime.now());
-        measurement.setSensor(sensorService.findByName(measurement.getSensor().getName()));
+        measurement.setSensor(sensorService.findByName(measurement.getSensor().getName()).get());
         measurementRepository.save(measurement);
     }
 

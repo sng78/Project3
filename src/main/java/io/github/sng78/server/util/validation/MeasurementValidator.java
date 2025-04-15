@@ -1,7 +1,7 @@
-package io.github.sng78.util.validation;
+package io.github.sng78.server.util.validation;
 
-import io.github.sng78.model.Measurement;
-import io.github.sng78.service.SensorService;
+import io.github.sng78.server.model.Measurement;
+import io.github.sng78.server.service.SensorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;

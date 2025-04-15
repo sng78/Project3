@@ -1,6 +1,6 @@
-package io.github.sng78.to;
+package io.github.sng78.server.to;
 
-import io.github.sng78.model.Sensor;
+import io.github.sng78.server.model.Sensor;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;

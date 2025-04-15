@@ -1,4 +1,4 @@
-package io.github.sng78.util.exception;
+package io.github.sng78.server.util.exception;
 
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;

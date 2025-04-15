@@ -1,4 +1,4 @@
-package io.github.sng78.to;
+package io.github.sng78.server.to;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;

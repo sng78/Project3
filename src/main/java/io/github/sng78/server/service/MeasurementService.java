@@ -1,7 +1,7 @@
-package io.github.sng78.service;
+package io.github.sng78.server.service;
 
-import io.github.sng78.model.Measurement;
-import io.github.sng78.repository.MeasurementRepository;
+import io.github.sng78.server.model.Measurement;
+import io.github.sng78.server.repository.MeasurementRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

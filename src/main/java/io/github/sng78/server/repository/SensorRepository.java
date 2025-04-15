@@ -1,6 +1,6 @@
-package io.github.sng78.repository;
+package io.github.sng78.server.repository;
 
-import io.github.sng78.model.Sensor;
+import io.github.sng78.server.model.Sensor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

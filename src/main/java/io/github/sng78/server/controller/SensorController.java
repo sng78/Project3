@@ -1,11 +1,11 @@
-package io.github.sng78.controller;
+package io.github.sng78.server.controller;
 
-import io.github.sng78.model.Sensor;
-import io.github.sng78.service.SensorService;
-import io.github.sng78.to.SensorTo;
-import io.github.sng78.util.exception.ErrorResponse;
-import io.github.sng78.util.exception.exceptionWithOverrideMessage;
-import io.github.sng78.util.validation.SensorValidator;
+import io.github.sng78.server.model.Sensor;
+import io.github.sng78.server.service.SensorService;
+import io.github.sng78.server.to.SensorTo;
+import io.github.sng78.server.util.exception.ErrorResponse;
+import io.github.sng78.server.util.exception.exceptionWithOverrideMessage;
+import io.github.sng78.server.util.validation.SensorValidator;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-import static io.github.sng78.util.exception.ErrorMessage.returnErrorMessage;
+import static io.github.sng78.server.util.exception.ErrorMessage.returnErrorMessage;
 
 @RestController
 @RequestMapping("/sensors")

@@ -1,4 +1,4 @@
-package io.github.sng78.model;
+package io.github.sng78.server.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;

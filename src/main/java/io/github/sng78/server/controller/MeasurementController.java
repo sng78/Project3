@@ -1,11 +1,11 @@
-package io.github.sng78.controller;
+package io.github.sng78.server.controller;
 
-import io.github.sng78.model.Measurement;
-import io.github.sng78.service.MeasurementService;
-import io.github.sng78.to.MeasurementTo;
-import io.github.sng78.util.exception.ErrorResponse;
-import io.github.sng78.util.exception.exceptionWithOverrideMessage;
-import io.github.sng78.util.validation.MeasurementValidator;
+import io.github.sng78.server.model.Measurement;
+import io.github.sng78.server.service.MeasurementService;
+import io.github.sng78.server.to.MeasurementTo;
+import io.github.sng78.server.util.exception.ErrorResponse;
+import io.github.sng78.server.util.exception.exceptionWithOverrideMessage;
+import io.github.sng78.server.util.validation.MeasurementValidator;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,7 +17,8 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static io.github.sng78.util.exception.ErrorMessage.returnErrorMessage;
+import static io.github.sng78.server.util.exception.ErrorMessage.returnErrorMessage;
+
 
 @RestController
 @RequestMapping("/measurements")

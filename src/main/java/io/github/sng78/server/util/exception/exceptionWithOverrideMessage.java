@@ -1,4 +1,4 @@
-package io.github.sng78.util.exception;
+package io.github.sng78.server.util.exception;
 
 public class exceptionWithOverrideMessage extends RuntimeException {
 

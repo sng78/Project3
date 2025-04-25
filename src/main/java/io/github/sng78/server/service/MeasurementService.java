@@ -24,10 +24,11 @@ public class MeasurementService {
     }
 
     @Transactional
-    public void save(Measurement measurement) {
+    public Measurement save(Measurement measurement) {
         measurement.setDateTime(LocalDateTime.now());
-        measurement.setSensor(sensorService.findByName(measurement.getSensor().getName()).get());
+        measurement.setSensor(sensorService.findByName(measurement.getSensor().getName()).orElse(null));
         measurementRepository.save(measurement);
+        return measurement;
     }
 
     public List<Measurement> getAll() {

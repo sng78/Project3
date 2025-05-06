@@ -5,7 +5,7 @@
 - Получение данных с сервера, и построение на их основе графика
 
 ***Используемые технологии:***
-- JDK 11, Spring Boot, Spring MVC, Spring Data JPA, Hibernate, JUnit, Maven, Thymeleaf, Postgres, xchart
+- Java, Postgres, Hibernate, Hibernate Validator, Spring Boot, Spring MVC, Spring Data JPA, XChart, JUnit, Maven
 
 ***REST API сервис***
 
